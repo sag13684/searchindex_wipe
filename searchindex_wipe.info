@@ -1,0 +1,5 @@
+name = SearchIndex Wipe
+description = Enables wipping of search index.
+dependencies[] = search
+package = search
+core = 6.x

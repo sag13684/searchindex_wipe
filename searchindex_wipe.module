@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Enables wipe of search index.
+ */
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function searchindex_wipe_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'search_admin_settings') {
+    $form['status']['clear_index'] = array(
+      '#value' => t('Wipe Index'),
+      '#type' => 'submit',
+      '#submit' => array('searchindex_wipe_all'),
+      '#description' => t('Drops all the index build by search module'),
+    );
+  }
+}
+
+/**
+ * Truncates all search related tables
+ */
+function searchindex_wipe_all(&$form, &$form_state) {
+  //Taken code from drupal_uninstall_schema
+  $schema = drupal_get_schema_unprocessed('search');
+  _drupal_initialize_schema($module, $schema);
+  foreach ($schema as $table) {
+    db_query("TRUNCATE {%s}", $table['name']);
+  }
+  drupal_set_message(t('Search Index Cleared, Please rebuilt the index by running cron.'));
+}
