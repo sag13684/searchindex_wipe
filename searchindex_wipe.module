@@ -6,7 +6,7 @@
  */
 
 /**
- * Implementation of hook_form_alter().
+ * Implements hook_form_alter().
  */
 function searchindex_wipe_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'search_admin_settings') {
@@ -20,10 +20,10 @@ function searchindex_wipe_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Truncates all search related tables
+ * Truncates all search related tables.
  */
 function searchindex_wipe_all(&$form, &$form_state) {
-  //Taken code from drupal_uninstall_schema
+  // Taken code from drupal_uninstall_schema.
   $schema = drupal_get_schema_unprocessed('search');
   foreach ($schema => $table_name as $table) {
     //Truncate search related tables
