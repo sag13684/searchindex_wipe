@@ -39,6 +39,7 @@ function searchindex_wipe_help($path, $arg) {
   switch ($path) {
     // Main module help for the block module.
     case 'admin/config/search/settings':
-      return '<p>' . t('Wipe Index clean up old indexes.') . '</p>';
+      return '<p>' . t('Enables clearing of Search related indexes, so that search related tables do not grow large.
+      To Re-index the site, You first need to click on Wipe Index button.') . '</p>';
   }
 }
