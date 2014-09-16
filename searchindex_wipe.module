@@ -37,7 +37,7 @@ function searchindex_wipe_all(&$form, &$form_state) {
  */
 function searchindex_wipe_help($path, $arg) {
   switch ($path) {
-    // Main module help for the block module
+    // Main module help for the block module.
     case 'admin/config/search/settings':
       return '<p>' . t('Wipe Index clean up old indexes.') . '</p>';
   }
