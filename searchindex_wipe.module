@@ -25,7 +25,7 @@ function searchindex_wipe_form_alter(&$form, &$form_state, $form_id) {
 function searchindex_wipe_all(&$form, &$form_state) {
   // Taken code from drupal_uninstall_schema.
   $schema = drupal_get_schema_unprocessed('search');
-  foreach ($schema => $table_name as $table) {
+  foreach ($schema as $table_name => $table) {
     // Truncate search related tables.
     db_truncate($table_name)->execute();
   }
