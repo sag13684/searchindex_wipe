@@ -12,7 +12,7 @@ Needs core search module to be enable on the site.
 
 -- INSTALLATION --
 
-* Install as usual, see https://www.drupal.org/node/895232 for further information.
+* Install as usual, see http://drupal.org/node/895232 for further information.
 
 
 -- CONFIGURATION --
@@ -38,5 +38,5 @@ A: It is similar to Rebuild index button, we need to run cron on the site to reb
 -- CONTACT --
 
 Current maintainers:
-* Sagar Ramgade (Sagar Ramgade) - https://www.drupal.org/user/399718
-* Nitesh Pawar (Nitesh Pawar) - https://www.drupal.org/user/1069334
+* Sagar Ramgade (Sagar Ramgade) - http://drupal.org/user/399718
+* Nitesh Pawar (Nitesh Pawar) - http://drupal.org/user/1069334
