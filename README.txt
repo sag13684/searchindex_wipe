@@ -1,4 +1,4 @@
--- SUMMARY --
+﻿-- SUMMARY --
 
 This module clean up search index built by search module. It is helpful
 while deploying large sites whose search index becomes massive.
@@ -17,7 +17,7 @@ Needs core search module to be enable on the site.
 
 -- CONFIGURATION --
 
-* To clear the search go to Administration » Configuration » Search and metadata » Search settings.
+* To clear the search index, go to Administration » Configuration » Search and metadata » Search settings.
   Hit on Wipe Index button next to Re-index site button.
 
 
