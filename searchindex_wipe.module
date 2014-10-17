@@ -6,15 +6,29 @@
  */
 
 /**
+ * Implements hook_permission().
+ */
+function searchindex_wipe_permission() {
+  return array(
+    'show wipe index' => array(
+      'title' => t('Show Wipe Index'),
+      'description' => t('User can see Wipe Index Button.'),
+    ),
+  );
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function searchindex_wipe_form_search_admin_settings_alter(&$form, &$form_state) {
-  $form['status']['clear_index'] = array(
-    '#value' => t('Wipe Index'),
-    '#type' => 'submit',
-    '#submit' => array('searchindex_wipe_all'),
-    '#description' => t('Drops all the index build by search module'),
-  );
+  if (user_access('show wipe index')) {
+    $form['status']['clear_index'] = array(
+      '#value' => t('Wipe Index'),
+      '#type' => 'submit',
+      '#submit' => array('searchindex_wipe_all'),
+      '#description' => t('Drops all the index build by search module'),
+    );
+  }
 }
 
 /**
