@@ -17,22 +17,24 @@ Needs core search module to be enable on the site.
 
 -- CONFIGURATION --
 
-* To clear the search index, go to Administration » Configuration » Search and metadata » Search settings.
-  Hit on Wipe Index button next to Re-index site button.
-
+* To clear the search index, go to Administration » Configuration » Search and 
+  metadata » Search settings. Hit on Wipe Index button next to Re-index site 
+  button.
 
 -- FAQ --
 
 Q: Why should I use this module?
 
-A: The search index can become massive on large sites, making it difficult to transfer the site to another server.
-   Examples include migrating ISPs or just creating a test site. Yes, we know it would be better to not delete the
-   entire search index, but its sheer size sometimes forces the need.
+A: The search index can become massive on large sites, making it difficult 
+   to transfer the site to another server. Examples include migrating ISPs 
+   or just creating a test site. Yes, we know it would be better to not delete
+   the entire search index, but its sheer size sometimes forces the need.
 
 
-Q:  I wiped my search index, How do I rebuilt it?
+Q: I wiped my search index, How do I rebuilt it?
 
-A: It is similar to Rebuild index button, we need to run cron on the site to rebuilt the index.
+A: It is similar to Rebuild index button, we need to run cron on the site to 
+   rebuilt the index.
 
 
 -- CONTACT --
