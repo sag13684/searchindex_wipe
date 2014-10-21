@@ -9,11 +9,12 @@
  * Implements hook_menu().
  */
 function searchindex_wipe_menu() {
+  //confirmation form to wipe search index
   $items['admin/searchindex_wipe'] = array(
     'title' => 'Clear Index',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('searchindex_wipe_confirm'),
-    'access arguments' => array('show wipe index'),
+    'access arguments' => array('wipe search index'),
     'type' => MENU_CALLBACK,
   );
 
@@ -25,9 +26,9 @@ function searchindex_wipe_menu() {
  */
 function searchindex_wipe_permission() {
   return array(
-    'show wipe index' => array(
-      'title' => t('Show Wipe Index'),
-      'description' => t('User can see Wipe Index Button.'),
+    'wipe search index' => array(
+      'title' => t('Wipe Search Index'),
+      'description' => t('Permission to wipe search index.'),
     ),
   );
 }
@@ -36,7 +37,7 @@ function searchindex_wipe_permission() {
  * Implements hook_form_FORM_ID_alter().
  */
 function searchindex_wipe_form_search_admin_settings_alter(&$form, &$form_state) {
-  if (user_access('show wipe index')) {
+  if (user_access('wipe search index')) {
     $form['status']['clear_index'] = array(
       '#value' => t('Wipe Index'),
       '#type' => 'submit',
