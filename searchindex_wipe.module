@@ -9,7 +9,7 @@
  * Implements hook_menu().
  */
 function searchindex_wipe_menu() {
-  //confirmation form to wipe search index
+  // Confirmation form to wipe search index.
   $items['admin/searchindex_wipe'] = array(
     'title' => 'Clear Index',
     'page callback' => 'drupal_get_form',

@@ -1,4 +1,5 @@
-﻿-- SUMMARY --
+﻿README.txt
+-- SUMMARY --
 
 This module clean up search index built by search module. It is helpful
 while deploying large sites whose search index becomes massive.
