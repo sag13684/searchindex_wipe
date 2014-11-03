@@ -1,4 +1,4 @@
-﻿README.txt
+README.txt
 -- SUMMARY --
 
 This module clean up search index built by search module. It is helpful
