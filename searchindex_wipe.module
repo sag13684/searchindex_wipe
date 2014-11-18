@@ -88,5 +88,5 @@ function searchindex_wipe_confirm_submit($form, &$form_state) {
     }
     drupal_set_message(t('Search Index Cleared, Please rebuilt the index by running cron.'));
   }
-  drupal_goto('admin/config/search/settings');
+  $form_state['redirect'] = 'admin/config/search/settings';
 }
