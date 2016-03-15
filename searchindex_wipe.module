@@ -69,7 +69,7 @@ function searchindex_wipe_help($path, $arg) {
  * Confirmation form.
  */
 function searchindex_wipe_confirm($form, $form_state) {
-  return confirm_form($form, t('Are you sure you want to clearing of Search related indexes?'), "admin/config/search/settings", t('This action cannot be undone.'), t('Delete'), t('Cancel')
+  return confirm_form($form, t('Are you sure you want to clear Search index?'), "admin/config/search/settings", t('This action cannot be undone.'), t('Delete'), t('Cancel')
   );
 }
 
@@ -78,13 +78,17 @@ function searchindex_wipe_confirm($form, $form_state) {
  */
 function searchindex_wipe_confirm_submit($form, &$form_state) {
   if ($form_state['values']['confirm']) {
-    // Taken code from drupal_uninstall_schema.
-    $schema = drupal_get_schema_unprocessed('search');
-    foreach ($schema as $table_name => $table) {
-      // Truncate search related tables.
-      db_truncate($table_name)->execute();
-    }
-    drupal_set_message(t('Search Index Cleared, Please rebuilt the index by running cron.'));
+    searchindex_wipe_truncate_table();
   }
   $form_state['redirect'] = 'admin/config/search/settings';
+}
+
+function searchindex_wipe_truncate_table() {
+  // Taken code from drupal_uninstall_schema.
+  $schema = drupal_get_schema_unprocessed('search');
+  foreach ($schema as $table_name => $table) {
+    // Truncate search related tables.
+    db_truncate($table_name)->execute();
+  }
+  drupal_set_message(t('Search Index Cleared, Please rebuilt the index by running cron.'));
 }
