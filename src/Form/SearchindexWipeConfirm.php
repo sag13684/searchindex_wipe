@@ -43,13 +43,7 @@ class SearchindexWipeConfirm extends ConfirmFormBase {
    */
   function submitForm(array &$form, FormStateInterface $form_state) {
     if ($form['confirm']) {
-      // Taken code from drupal_uninstall_schema.
-      $schema = drupal_get_module_schema('search');
-      foreach ($schema as $table_name => $table) {
-        // Truncate search related tables.
-        db_truncate($table_name)->execute();
-      }
-      drupal_set_message($this->t('Search Index Cleared, Please rebuilt the index by running cron.'));
+      searchindex_wipe_truncate_table();
       $form_state->setRedirectUrl($this->getCancelUrl());
     }
   }

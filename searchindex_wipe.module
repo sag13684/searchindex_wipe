@@ -28,3 +28,16 @@ function searchindex_wipe_all(&$form, FormStateInterface $form_state) {
   $url = new Url('searchindex_wipe.reindex_confirm');
   $form_state->setRedirectUrl($url);
 }
+
+/**
+ * Helper function to truncate search related tables.
+ */
+function searchindex_wipe_truncate_table() {
+  // Taken code from drupal_uninstall_schema.
+  $schema = drupal_get_module_schema('search');
+  foreach ($schema as $table_name => $table) {
+    // Truncate search related tables.
+    db_truncate($table_name)->execute();
+  }
+  drupal_set_message(t('Search Index Cleared, Please rebuilt the index by running cron.'));
+}
