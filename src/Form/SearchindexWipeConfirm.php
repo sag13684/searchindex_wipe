@@ -1,33 +1,40 @@
 <?php
+
 /**
  * @file
  * Contains \Drupal\searchindex_wipe\Form\SearchindexWipeConfirm.
  */
+
 namespace Drupal\searchindex_wipe\Form;
 
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
-class SearchindexWipeConfirm extends ConfirmFormBase {
+/**
+ * Class SearchIndexWipeConfirm
+ * @package Drupal\searchindex_wipe\Form
+ */
+class SearchIndexWipeConfirm extends ConfirmFormBase {
+
   /**
    * {@inheritdoc}
    */
-  function getFormID() {
+  public function getFormID() {
     return 'searchindex_wipe_confirm';
   }
 
   /**
    * {@inheritdoc}
    */
-  function getQuestion() {
+  public function getQuestion() {
     return t('Are you sure you want to clearing of Search related indexes?');
   }
 
   /**
    * {@inheritdoc}
    */
-  function getConfirmText() {
+  public function getConfirmText() {
     return t('Delete');
   }
 
@@ -41,10 +48,11 @@ class SearchindexWipeConfirm extends ConfirmFormBase {
   /**
    * {@inheritdoc}
    */
-  function submitForm(array &$form, FormStateInterface $form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     if ($form['confirm']) {
       searchindex_wipe_truncate_table();
       $form_state->setRedirectUrl($this->getCancelUrl());
     }
   }
+
 }

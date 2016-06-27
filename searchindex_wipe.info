@@ -1,5 +1,0 @@
-name = SearchIndex Wipe
-description = Enables wiping of search index.
-dependencies[] = search
-package = search
-core = 7.x

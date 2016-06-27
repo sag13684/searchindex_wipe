@@ -6,12 +6,13 @@
  */
 
 /**
- * Implementation of hook_drush_help().
+ * Implements of hook_drush_help().
  */
 function searchindex_wipe_drush_help($section) {
   switch ($section) {
     case 'meta:searchindex_wipe:title':
       return dt('Search Index wipe commands');
+
     case 'meta:cache:summary':
       return dt('Wipes Search module generated index.');
   }
@@ -31,6 +32,9 @@ function searchindex_wipe_drush_command() {
   return $items;
 }
 
+/**
+ * Ask for confirmation and drops indexes.
+ */
 function drush_searchindex_wipe() {
   if (drush_confirm('Are you sure you want to clear Search index?')) {
     searchindex_wipe_truncate_table();

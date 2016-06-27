@@ -4,11 +4,12 @@
  * @file
  * Enables wipe of search index.
  */
+
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+
 /**
  * Implements hook_form_FORM_ID_alter().
- * @see \Drupal\system\Form\ThemeSettingsForm method buildForm at core/modules/system/src/Form/ThemeSettingsForm.php
  */
 function searchindex_wipe_form_search_admin_settings_alter(&$form, FormStateInterface $form_state) {
   if (\Drupal::currentUser()->hasPermission('wipe search index')) {
